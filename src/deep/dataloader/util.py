@@ -30,7 +30,7 @@ def load_dictionary_file(filename, special_flag, charset='utf8'):
         index2word[len(index2word)] = '<END>'
         word2index['<END>'] = len(word2index)
         
-    with codecs.open(filename, 'r', charset) as fo :
+    with codecs.open(filename, 'r', charset, errors='replace') as fo :
         for line in fo.readlines() :
             data = line.strip().split('\t')
             if len(data) < 1:
